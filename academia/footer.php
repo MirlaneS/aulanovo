@@ -1,6 +1,6 @@
-<div class="container-fluid">
-  <div class="row text-center bg-light">
-    <div class="col-md-3">
+<div class="container-fluid footer">
+  <div class="row text-center">
+    <div class="col-md-3 footer ">
       <h4> Institucional</h4>
       <p><a href="#">Home</a></p>
       <p><a href="#">Nossa Academia</a></p>
@@ -10,7 +10,7 @@
 
 
 
-    <div class="col-md-3">
+    <div class="col-md-3 footer">
       <h4>Atividades</h4>
       <ul class="navbar-nav">
         <li class="navbar-nav"><a href="#">Spinnig</a></li>
@@ -20,7 +20,7 @@
       </ul>
     </div>
     
-    <div class="col-md-3">
+    <div class="col-md-3 footer">
       <h4>Funcionamento</h4>
       <p>Segunda á Sábado - 06:00 ás 23:00</p>
       <p>Domingo - 07:00 ás 13:00</p>
@@ -35,9 +35,9 @@
 
    <div class="row text-center">
     <div class="col-md-12 sociais">
-      <a href="#"><img src="imagens/face.png"></a>
-      <a href="#"><img src="imagens/insta.png"></a>
-      <a href="#"><img src="imagens/wpp.png"></a>
+      <a href="https://facebook.com/" target="blank" rel="nooper noreferrer"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://instagram.com/" target="blank" rel="nooper noreferrer"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://web.whatsapp.com/"target="blank" rel="nooper noreferrer"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
    </div>
 
