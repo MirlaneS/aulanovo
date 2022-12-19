@@ -33,17 +33,23 @@
                 <a class="dropdown-item" href="suplementos.php">Suplementos</a>
                 <a class="dropdown-item" href="acessorios.php">Acessorios</a>
                 <a class="dropdown-item" href="mochilas.php">Mochilas</a>
-                
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#"></a>
-            </li>
-          </ul>
-
+          
           <li class="nav-item">
               <a class="nav-link" href="login.php">Área do cliente</a>
           </li>
+
+          <li class="nav-item">
+              <a class="nav-link" href="alunofmlr.php">Aluno</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="perfil.php">Perfil</a>
+          </li>
+            
+          </ul>
+
+          
 
           <!--<form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">

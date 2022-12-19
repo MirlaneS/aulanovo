@@ -12,13 +12,13 @@ require_once 'menu.php';
   <!-- Email input -->
   <div class="form-outline mb-4">
     <input type="email" id="form2Example1" class="form-control" />
-    <label class="form-label" for="form2Example1">Email address</label>
+    <label class="form-label" for="form2Example1">E-mail</label>
   </div>
 
   <!-- Password input -->
   <div class="form-outline mb-4">
     <input type="password" id="form2Example2" class="form-control" />
-    <label class="form-label" for="form2Example2">Password</label>
+    <label class="form-label" for="form2Example2">Senha</label>
   </div>
 
   <!-- 2 column grid layout for inline styling -->
@@ -27,13 +27,13 @@ require_once 'menu.php';
       <!-- Checkbox -->
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-        <label class="form-check-label" for="form2Example31"> Remember me </label>
+        <label class="form-check-label" for="form2Example31"> Lembrar-me </label>
       </div>
     </div>
 
     <div class="col">
       <!-- Simple link -->
-      <a href="#!">Forgot password?</a>
+      <a href="#!">Esqueceu a senha?</a>
     </div>
   </div>
 
@@ -42,8 +42,8 @@ require_once 'menu.php';
 
   <!-- Register buttons -->
   <div class="text-center">
-    <p>Not a member? <a href="#!">Register</a></p>
-    <p>or sign up with:</p>
+    <p>Não e Membro? <a href="#!">Registrar</a></p>
+    
     <button type="button" class="btn btn-link btn-floating mx-1">
       <i class="fab fa-facebook-f"></i>
     </button>
