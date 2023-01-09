@@ -1,7 +1,5 @@
 drop database if exists academia1; 
-
 create database academia1 character set utf8 COLLATE utf8_general_ci;
-
 use academia1;
 
 create table endereco(
@@ -15,6 +13,7 @@ create table aluno(
 	matricula integer primary key auto_increment,
 	nome varchar(60)not null,
 	telefone varchar(15)not null,
+	sexo char(1) not null,
 	cpf char(14)not null,
 	rg varchar(15)not null,
 	datanascimento date not null,
@@ -22,17 +21,21 @@ create table aluno(
 	numerocasa smallint not null,
 	complemento varchar(30), 
 	foto varchar(255),
+	email varchar(40)not null,
 	foreign key(cep)references endereco(cep));
 	
 create table funcionario(
 	cpffuncionario char(14)primary key,
 	nome varchar(60)not null,
 	telefone varchar(15)not null,
+	sexo char(1) not null,
 	rg varchar(15)not null,
 	cep char(9) not null,
 	numerocasa smallint not null,
 	complemento varchar(30), 
 	foto varchar(255),
+	cargo varchar(40)not null,
+	email varchar(40)not null,
 	foreign key(cep)references endereco(cep));
 	
 create table professor(
@@ -102,14 +105,14 @@ insert into endereco(cep,rua,bairro,cidade,uf)VALUES
 ('26551-090','Travessa Elpidio','Cruzeiro do Sul','Mesquita','RJ');
 
 
-insert into aluno(nome,telefone,rg,cpf,datanascimento,cep,numerocasa,complemento,foto)VALUES
-('Maria','(21)99886-1055','12555','123456893-10','2001-08-01','23085-610',31,'ap 102','vazio'),
-('Pedro','(21)99999-1055','00012','123456789-10','1997-10-20','26551-090',100,'fundos','vazio');
+insert into aluno(nome,telefone,rg,cpf,datanascimento,cep,numerocasa,complemento,foto,sexo,email)VALUES
+('Maria','(21)99886-1055','12555','123456893-10','2001-08-01','23085-610',31,'ap 102','https://randomuser.me/api/portraits/women/20.jpg','F','mariasantos@gmail.com'),
+('Pedro','(21)99999-1055','00012','123456789-10','1997-10-20','26551-090',100,'fundos','https://randomuser.me/api/portraits/men/19.jpg','M','pedrosilva@gmail.com');
 	
-insert into funcionario(cpffuncionario,nome,telefone,rg,cep,numerocasa,complemento,foto)VALUES
-('123','Mário Silva','(21)9999-8888','0001','23085-610',40,'ap 202','vazio'),
-('456','Gabriel Silva','(21)9999-7777','0002','26551-090',100,'casa','vazio'),
-('789','Mariana Souza','(21)9999-5555','1234','23085-610',1820,'casa','vazio');
+insert into funcionario(cpffuncionario,nome,telefone,rg,cep,numerocasa,complemento,foto,sexo,cargo,email)VALUES
+('123','Mário Silva','(21)9999-8888','0001','23085-610',40,'ap 202','https://randomuser.me/api/portraits/men/21.jpg','M','professor','mario@silva.com'),
+('456','Gabriel Silva','(21)9999-7777','0002','26551-090',100,'casa','https://randomuser.me/api/portraits/men/22.jpg','M','professor','gabriel@silva.com'),
+('789','Mariana Souza','(21)9999-5555','1234','23085-610',1820,'casa','https://randomuser.me/api/portraits/women/17.jpg','F','recepcionista','mariana@souza.com');
 
 insert into professor(disponibilidade,cpffuncionario)VALUES
 ('segunda e sexta dia todo','123'),
@@ -139,200 +142,155 @@ insert into venda(data,valor,quantidade,codigoproduto,cpffuncionario)VALUES
 ('2022-12-05',120,1,2,'789');
 
 
-PESQUISAS NAS TABELAS
 
-1) Pesquisar todas as colunas com todos os registros.
+-- 1) Pesquisar todas as colunas com todos os registros.
+-- select * from aluno;
 
-select * from aluno;
+-- 2) Pesquisar nome e telefone de todos os alunos.
+-- select nome, telefone from aluno;
 
-2) Pesquisar nome e telefone de todos os alunos.
+-- 3) Pesquisar nome e telefone dos alunos que moram em apartamentos.
+-- select nome, telefone from aluno
+-- where
+-- complemento like '%ap%';
 
-select nome,telefone from aluno;
+-- 4) Pesquisar nome e valor de todos os produtos com estoque maior ou igual a 30 unidades.
+-- select nome, valor from produto 
+-- where 
+-- quantidade >= 30;
 
-3) Pesquisar nome e telefone dos alunos que moram em apartamentos.
+-- 5) Pesquisar qual a soma do valor dos produtos em estoque.(soma dos valores)
+-- select sum(valor) from produto;
 
-select nome,telefone from aluno 
-where
-complemento like '%ap%'; 
+-- 6) Verificar qual o valor total de mercadorias em estoque.
+-- select sum(valor*quantidade) from produto;
 
-4) Pesquisar nome e preço de todos os produtos com estoque maior ou igual a
- 30 unidades.
- 
- select nome,valor from produto where quantidade >= 30;
+-- /****Nomeando pesquisas / colunas****/
+-- select sum(valor*quantidade) as 'Total do Estoque' from produto;
 
-5) Pesquisar qual a soma do valor dos produtos em estoque.(soma dos valores).
+-- 7) Pesquisar as informações das aulas executadas entre os dias 06/12/2022 a 10/12/2022.
+-- select * from aula
+-- where
+-- dataaula >= '2022/12/06' and
+-- dataaula <= '2022/12/10';
 
-select sum(valor) from produto;
+-- select * from aula where
+-- dataaula between '2022/12/06' and '2022/12/10';
 
-6)Verificar qual o valor total de mercadorias em estoque.
+-- 8) Pesquisar as informações das aulas executadas nos dias 06/12/2022 a 10/12/2022.
+-- select * from aula where
+-- dataaula in ('2022/12/06','2022/12/10');
 
-select sum(valor*quantidade) from produto;
+-- 9) Pesquisar o nome, telefone e cpf de todas as alunas que o nome comece com a letra M.
+-- select nome, telefone, cpf from aluno
+-- where
+-- nome like 'm%';
 
-/*Nomeando pesquisas / colunas */
+-- 10) Alterar na tabela de alunos para inserir o sobrenome nos alunos de matrícula 1 e 2.
+-- update aluno
+-- set nome = 'Maria Silva dos Santos'
+-- where matricula = 1;
 
-select sum(valor*quantidade) as 'Total do Estoque' from produto;
+-- update aluno
+-- set nome = 'Pedro Melo de Souza'
+-- where matricula = 2;
 
-7) Pesquisar as informações das aulas executadas entre os dias
-06/12/2022 a 10/12/2022.
+-- 11) Pesquisar o nome e telefone dos alunos que o último sobrenome é Souza.
+-- select nome, telefone from aluno
+-- where
+-- nome like '%Souza';
 
-select * from aula WHERE
-dataaula >= '2022-12-06' AND
-dataaula <= '2022-12-10';
+-- 12) Pesquisar a média de preço dos produtos no estoque.
+-- select avg(valor) from produto;
 
-select * from aula WHERE
-dataaula BETWEEN '2022-12-06' and '2022-12-10';
+-- 13) Pesquisar o produto com menor preço em estoque.
+-- select min(valor) from produto;
 
-8)Pesquisar as informações das aulas executadas nos dias 
-06/12/2022 e 10/12/2022.
+-- 14) Pesquisar o produto com maior valor em estoque.
+--> select max(valor) from produto;
 
-select * from aula where
-dataaula in ('2022-12-06','2022-12-10');
---in quer dizer os dias exatos.
+-- 15) Pesquisar nome do aluno, telefone, rua que mora e nº da casa, bairro.
+--> select aluno.nome, aluno.telefone, endereco.rua, aluno.numerocasa, endereco.bairro
+--> from aluno inner join endereco
+--> on endereco.cep = aluno.cep;
 
-9)Pesquisar o nome, telefone e cpf  de todas as alunas que o nome comece com a letra m.
+-- /****Dando um apelido a tabela****/
+--> select a.nome, a.telefone, e.rua, a.numerocasa, e.bairro
+--> from aluno a inner join endereco e
+--> on e.cep = a.cep;
 
-select nome,telefone,cpf from aluno
-WHERE
-nome like 'm%';
+-- 16) Pesquisar nome da atividade, data da aula e horário de todas as aulas do mês de Dezembro 2022.
+--> select ati.nomeatividade, a.dataaula, a.horario
+--> from atividade ati inner join aula a
+--> on ati.idatividade = a.idatividade
+--> and a.dataaula between '2022/12/01' and '2022/12/31';
 
-10)Alterar a tabela de alunos para inserir o sobrenome nos alunos
-de matrícula 1 e 2.
+-- 17) Pesquisar nome e telefone de todos os professores.
+--> select f.nome, f.telefone
+--> from funcionario f inner join professor pr
+--> on f.cpffuncionario = pr.cpffuncionario;
 
-update aluno --update faz a ateracao do aluno
-set nome = 'Maria Silva dos Santos' --
-where matricula = 1;
+-- 18) Pesquisar o nome e valor da venda de todos os funcionários que realizou no mês de dezembro.
+--> select f.nome, v.valor
+--> from funcionario f inner join venda v
+--> on f.cpffuncionario = v.cpffuncionario
+--> and v.data between '2022/12/01' and '2022/12/31';
 
-update aluno
-set nome = 'Pedro Melo de Souza'
-where matricula = 2;
+-- 19) Pesquisar nome da atividade, nome dos alunos, data da aula e horário de todas as aulas do mês de Dezembro 2022.
+--> select ati.nomeatividade, a.dataaula, a.horario, alu.nome
+--> from atividade ati inner join aula a
+--> on ati.idatividade = a.idatividade
+--> inner join aulaaluno aa
+--> on a.idaula = aa.idaula
+--> inner join aluno alu 
+--> on alu.matricula = aa.matricula
+--> and a.dataaula between '2022/12/01' and '2022/12/31';
 
-11)Pesquisar o nome e telefone dos alunos que o último sobrenome é
-Souza.
+-- 20) Pesquisar nome e telefone de todos os personal que tiveram aula no dia 09/12/2022.
+--> select f.nome, f.telefone
+--> from funcionario f inner join professor pr
+--> on f.cpffuncionario = pr.cpffuncionario
+--> inner join aula a
+--> on pr.idprofessor = a.idprofessor
+--> and a.dataaula = '2022/12/09';
 
--- para acrecentar mais um criterio colocar (and e quando eu quero as duas coisa) e o (or euma coisa ou outra).
-select nome,telefone from aluno
-where 
-nome like '%Souza'; 
+-- 21) Pesquisar nome e telefone de todos os professores que podem dar aulas de spinning.
+--> select f.nome, f.telefone
+--> from funcionario f inner join professor pr
+--> on f.cpffuncionario = pr.cpffuncionario
+--> inner join habilitaprofessor hp
+--> on pr.idprofessor = hp.idprofessor
+--> inner join atividade ati
+--> on hp.idatividade = ati.idatividade
+--> and ati.nomeatividade = 'spinning';
 
-/*Para acrescentar mais um critério colocar AND ou OR */
-select nome,telefone from aluno
-where 
-nome like '%Souza' or nome like '%Silva';--
+-- 22) Mostrar o total de vendas do dia 05/12/2022.
+--> select sum(valor) from venda
+--> where data = '2022-12-05';
 
-12) Pesquisar a média de preço dos produtos no estoque.
+-- 23) Pesquisar nome da atividade, data da aula e horário de todas as aulas do dia 06/12/2022.
 
-select avg(valor) from produto;
---avg tira o valor do produto
-
-13) Pesquisar o produto com menor preço em estoque.
-
-select min(valor) from produto; --min e minimo do preço
-
-14) Pesquisar o produto com maior valor em estoque.
-
-select max(valor) from produto;
-
-15)Pesquisar nome do aluno, telefone, rua, numero da casa e bairro.
-
-select aluno.nome, aluno.telefone,endereco.rua,aluno.numerocasa,endereco.bairro
-from aluno inner join endereco
-on endereco.cep = aluno.cep;
---inner join e quando eu quero juntar duas tabelas.
---on e como eu estou juntando ou seja pelo cep.
--- from e a origem dos dados que estao sendo chamados.
-
-/*Dando um apelido a tabela*/
-select a.nome, a.telefone,e.rua,a.numerocasa,e.bairro
-from aluno a inner join endereco e
-on e.cep = a.cep;
-
-16)Pesquisar nome da atividade, data da aula e horário de todas as aulas do
-mês de dezembro 2022.
-
-select ati.nomeatividade,a.dataaula,a.horario
-from atividade ati  inner join aula a
-on ati.idatividade = a.idatividade
-and a.dataaula between '2022-12-01' and '2022-12-31';
---between ele verificar dois valores de um dia a outro.
-
-17) Pesquisar nome e telefone de todos os professores.
-select f.nome, f.telefone 
-from funcionario f inner join professor p
-on f.cpffuncionario = p.cpffuncionario; 
-
-18) Pesquisar o nome do funcionário e valor das vendas que realizou no mês de dezembro.
-
-select f.nome,v.valor 
-from funcionario f inner join venda v
-on f.cpffuncionario = v.cpffuncionario;
-
-
-17) Pesquisar nome e telefone de todos os professores.
-
-select f.nome,f.telefone
-from funcionario f inner join professor p
-on f.cpffuncionario = p.cpffuncionario;
-
-
-18) Pesquisar o nome do funcionário e valor das vendas que realizou no mês de dezembro.
-
-select f.nome,v.valor
-from funcionario f inner join venda v
-on f.cpffuncionario = v.cpffuncionario
-and v.data between '2022-12-01' and '2022-12-31';
+--> select ati.nomeatividade, a.dataaula, a.horario
+--> from atividade ati inner join aula a
+--> on ati.idatividade = a.idatividade
+--> and a.dataaula between '2022/12/01' and '2022/12/31';
 
 
-19)Pesquisar nome da atividade, nome dos alunos, data da aula e horário de todas as aulas do mês de dezembro 2022.
-
-select ati.nomeatividade,a.dataaula,a.horario,alu.nome
-from atividade ati  inner join aula a
-on ati.idatividade = a.idatividade
-inner join aulaaluno aa
-on a.idaula = aa.idaula 
-inner join aluno alu
-on alu.matricula = aa.matricula
-and a.dataaula between '2022-12-01' and '2022-12-31';
-
-20)Pesquisar nome e telefone de todos os personal que tiveram aula no dia 09/12/2022.
-
-select f.nome,f.telefone
-from funcionario f inner join professor p 
-on f.cpffuncionario = p.cpffuncionario
-inner join aula a 
-on p.idprofessor = a.idprofessor
-and a.dataaula = '2022-12-09';
+/****** Adiciona uma nova coluna ******/
+-- ALTER TABLE aluno ADD sexo char(1) not null; 
 
 
-21)Pesquisar nome e telefone de todos os professores que podem dar aulas de spinning.
-
-select f.nome,f.telefone
-from funcionario f inner join professor p 
-on f.cpffuncionario = p.cpffuncionario
-inner join habilitaprofessor hp
-on p.idprofessor = hp.idprofessor
-inner join atividade a
-on hp.idatividade = a.idatividade
-and a.nomeatividade = 'spinning';
 
 
-22)Mostrar o total de vendas do dia 05/12/2022.
 
-select sum(valor*quantidade) from venda 
-where data = '2022-12-05';
 
-23)Pesquisar nome da atividade, data da aula e horário de todas as aulas do dia 06/12/2022.
 
-select ati.nomeatividade,a.dataaula,a.horario
-from atividade ati  inner join aula a
-on ati.idatividade = a.idatividade
-and a.dataaula = '2022-12-06';
 
-select ati.nomeatividade,a.dataaula,a.horario
-from atividade ati  inner join aula a
-on ati.idatividade = a.idatividade
-and a.dataaula in ('2022-12-06');
 
-/*Alterando uma tabela para inserir uma coluna*/
 
-alter table aluno add sexo(char)not null;
+
+
+
+
+
 

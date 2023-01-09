@@ -1,22 +1,20 @@
 <?php
 require_once 'head.php';
 require_once 'menu.php';
-
 ?>
 
- <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-center tela">
-                <img src="imagens/images4.jpg" class="img-fluid">
-            </div>
-
+<!--<div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <img src="imagens" class="capa-site">
         </div>
-    </div>
+      </div>
+    </div>-->
 
     <div class="container-fluid texto">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h2>Conheça Algumas de Nossas Atividades</h2>
+          <h1>Conheça Algumas de Nossas Atividades</h1>
         </div>
       </div>
     </div>
@@ -24,24 +22,23 @@ require_once 'menu.php';
     <div class="container-fluid imagens">
         <div class="row">
             <div class="col-md-4">
-                <img src="imagens/images1.jpg" class="img-fluid">
+                <img src="imagens/academia2.jpg" class="img-fluid">
             </div>
 
             <div class="col-md-4">
-                <img src="imagens/images2.jpg" class="img-fluid">
+                <img src="imagens/academia3.jpg" class="img-fluid">
             </div>
 
             <div class="col-md-4">
-                <img src="imagens/images3.jpg" class="img-fluid">
+                <img src="imagens/academia4.webp" class="img-fluid">
             </div>
-
         </div>
     </div>
 
     <div class="container-fluid text-center conteudo">
       <div class="row">
         <div class="col-md-6 col-sm">
-          <img src="imagens/jump.jpg" class="img-fluid">
+          <img src="imagens/jumpp.jpg" class="img-fluid">
         </div>
         <div class="col-md-6 col-sm">
           <h3>Jumpp</h3>
@@ -74,20 +71,11 @@ require_once 'menu.php';
           <p>Os principais benefícios do spinning para quem pratica são: trabalhar todo o condicionamento físico e muscular, principalmente das pernas e glúteos; ajudar a tonificar as veias e melhorar os movimentos, o que contribui para a redução da pressão arterial, diminuindo os riscos de doenças cardíacas</p>
         </div>
       </div>
-
     </div>
-
-   
-
-    <?php
-    require_once 'footer.php';
-    ?>
-
-    
-    
-
-
-
  
 
+
     
+<?php
+require_once 'footer.php';
+?>

@@ -3,179 +3,169 @@ require_once 'head.php';
 require_once 'menu.php';
 ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12 text-center tela">
-          <h1>Coleção 2023</h1>
+
+    <div class="container-fluid texto">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h1>Coleção de Verão 2023</h1>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
     <div class="container-fluid imagens">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="card" style="width: 18rem; height: 35rem;">
-            <img class="card-img-top" src="imagens/roupa-1.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-            <h2 class="card-text">Conjunto flexível</h2>
-            <h3>R$ 120,00</h3>
-       <!-- Botão para acionar modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#num-1">
-            Comprar
-            </button>
-          </div>
-      </div>
-    </div>
-
-        <div class="col-md-3">
-        <div class="card" style="width: 18rem; height: 35rem;">
-            <img class="card-img-top" src="imagens/roupa-2.jpg" alt="Imagem de capa do card">
-        <div class="card-body">
-        <h2 class="card-text">Legging Molde</h2>
-            <h3>R$ 59,90</h3>
-            
-    <!-- Botão para acionar modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#num-2">
-             Comprar
-            </button>
-          </div>
-      </div>
-    </div>
-
-        <div class="col-md-3">
-        <div class="card" style="width: 18rem; height: 35rem;">
-            <img class="card-img-top" src="imagens/roupa-3.jpg" alt="Imagem de capa do card">
-        <div class="card-body">
-        <h2 class="card-text">Top Molde</h2>
-        <h3>R$75,00</h3>
-        
-    <!-- Botão para acionar modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#num-3">
-             Comprar
-            </button>
-          </div>
-       </div>
-    </div>
-
-        <div class="col-md-3">
-          <div class="card" style="width: 18rem; height: 35rem;">
-            <img class="card-img-top" src="imagens/roupa-4.jpg" alt="Imagem de capa do card">
-          <div class="card-body">
-        <h1 class="card-text">Kit Academia</h1>
-        <h2>R$200,00</h2>
-        
-    <!-- Botão para acionar modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#num-4">
-          Comprar
-          </button>
-        </div>
-    </div>
-</div>
-
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card">
+             <img class="card-img-top" src="imagens/blusa-1.webp">
+             <div class="card-body">
+                <h2 class="card-text">Blusa Mullet</h2>
+                <h3>R$ 55,90</h3>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shirt-1">
+                    Comprar
+                  </button>
+            </div>
         </div>
     </div>
 
+         <div class="col-md-3">
+            <div class="card">
+              <img class="card-img-top" src="imagens/roupa-2.webp">
+              <div class="card-body">
+                  <h2 class="card-text">Conjunto Desportivo</h2>
+                  <h3>R$ 75,00</h3>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shirt-2">
+                    Comprar
+                  </button>
+              </div>
+            </div>
+          </div>
 
-<!-- Modal -->
-<div class="modal fade" id="num-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="col-md-3">
+              <div class="card">
+                <img class="card-img-top" src="imagens/roupa-3.jpg">
+                <div class="card-body">
+                    <h2 class="card-text">Kit Short Verão</h2>
+                    <h3>R$99,90</h3>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shirt-3">
+                    Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+            <div class="card">
+               <img class="card-img-top" src="imagens/roupa-4.webp">
+                <div class="card-body">
+                  <h2 class="card-text">Calça Legging High Unlimit</h2>
+                  <h3>R$ 79,90</h3>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shirt-4">
+                    Comprar
+                  </button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="shirt-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Conjunto flexível</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Blusa Mullet</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-        <img class="img-fluid" src="imagens/roupa-1.jpg" alt="Imagem de capa do card">
-        <p>Conjunto com custura reforcada.</p>
+        <img class="img-fluid" src="imagens/blusa-1.webp">
+        <p>Mochila em couro legítimo, com costuras reforçadas e alças anatômicas.</p>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adivionar ao carrinho</button>
+        <button type="button" class="btn btn-primary">Adicionar carrinho</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="num-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="shirt-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Legging Molde</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Conjunto Desportivo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-      <img class="card-img-top" src="imagens/roupa-2.jpg" alt="Imagem de capa do card">
-        <p>Legging stress com custura reforcada.</p>
+        <img class="img-fluid" src="imagens/roupa-2.webp">
+        <p> Este conjunto é confeccionado em suplex liso com detalhes em viés de cores contrastantes. Conforto, estilo e praticidade para você praticar atividade física.</p>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adivionar ao carrinho</button>
+        <button type="button" class="btn btn-primary">Adicionar carrinho</button>
       </div>
     </div>
   </div>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="num-3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="shirt-3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Top Molde</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Kit Short Verão</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-      <img class="card-img-top" src="imagens/roupa-3.jpg" alt="Imagem de capa do card">
-        <p>Top stress com custura reforcada.</p>
+        <img class="img-fluid" src="imagens/roupa-3.jpg">
+        <p>Short super confortável, seu material principal é Poliéster.
+           Temporada de lançamento: Primavera/Verão</p>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adivionar ao carrinho</button>
+        <button type="button" class="btn btn-primary">Adicionar carrinho</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="num-4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="shirt-4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Kit Academia</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Calça Legging</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="modal-body">
-      <img class="card-img-top" src="imagens/roupa-4.jpg" alt="Imagem de capa do card">
-        <p>.</p>
+        <img class="img-fluid" src="imagens/roupa-4.webp">
+        <p>Calça legging energy poliamida preta com elástico colorido</p>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Adivionar ao carrinho</button>
+        <button type="button" class="btn btn-primary">Adicionar carrinho</button>
       </div>
     </div>
   </div>
 </div>
-
 
    
-<?php
-require_once 'footer.php';
-?>
-
-    
-    
 
 
 
- 
 
-    
+ <?php
+ require_once 'footer.php';
+ ?>

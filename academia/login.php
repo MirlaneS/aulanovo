@@ -1,14 +1,21 @@
 <?php
 require_once 'head.php';
-require_once 'menu.php';
 ?>
- 
- <div class="containes">
+    
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12 text-center login-text">
+          <h2>Login</h2>
+        </div>
+      </div>
+    
+
+<div class="container">
     <div class="row">
-     <div class="col-md-4"> </div>
-    <div class="col-md-4"> 
-      
-<form>
+        <div class="col-md-4"></div>  
+        <div class="col-md-4">
+        <form>
   <!-- Email input -->
   <div class="form-outline mb-4">
     <input type="email" id="form2Example1" class="form-control" />
@@ -27,7 +34,7 @@ require_once 'menu.php';
       <!-- Checkbox -->
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-        <label class="form-check-label" for="form2Example31"> Lembrar-me </label>
+        <label class="form-check-label" for="form2Example31">Lembrar-me</label>
       </div>
     </div>
 
@@ -36,36 +43,13 @@ require_once 'menu.php';
       <a href="#!">Esqueceu a senha?</a>
     </div>
   </div>
-
   <!-- Submit button -->
-  <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-  <!-- Register buttons -->
-  <div class="text-center">
-    <p>Não e Membro? <a href="#!">Registrar</a></p>
-    
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-facebook-f"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-google"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-twitter"></i>
-    </button>
-
-    <button type="button" class="btn btn-link btn-floating mx-1">
-      <i class="fab fa-github"></i>
-    </button>
+     <button type="button" class="btn btn-primary btn-block mb-4 button-sing-in">Entrar</button>
+     </div>
+  </form>
+</div>
+    <div class="col-md-4"></div>
   </div>
-</form>
-
-</div>
-<div class="col-md-4"> </div>
-
-</div>
 </div>
 
 <?php
