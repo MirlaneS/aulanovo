@@ -1,4 +1,3 @@
-
 <?php
 require_once 'head.php';
 require_once 'menu.php';
@@ -10,16 +9,12 @@ require_once 'menu.php';
           <h1>Conheça Algumas de Nossas Atividades</h1>
         </div>
       </div>
+    </div>
 
 
 
 
 
-
-
-
-
-</div>
 
 <?php
 require_once 'footer.php';
