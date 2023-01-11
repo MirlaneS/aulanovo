@@ -1,6 +1,6 @@
 drop database if exists academia1; 
 
-create database academia1 character set utf8 COLLATE utf8_general_ci;
+create database academia character set utf8 COLLATE utf8_general_ci;
 
 use academia1;
 
